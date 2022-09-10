@@ -1,0 +1,33 @@
+.accordion {
+  width: 650px;
+}
+
+.accordionItem {
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  border-radius: 5px
+}
+
+.accordionHeader {
+  background-color: aliceblue;
+  padding: 15px 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &.active {
+    border-bottom: 1px solid #eee;
+    color: #4c4cec
+  }
+}
+
+.accordionBody {
+  height: 0;
+  overflow: hidden;
+
+  &.active {
+    padding: 20px;
+    height: auto;
+  }
+}

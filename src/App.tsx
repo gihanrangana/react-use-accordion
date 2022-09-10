@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Accordion from "./components/Accordion/Accordion";
+import useAccordion from "./hooks/useAccordion";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    const steps = [
+        {
+            name: "acc1",
+            title: "Accordion 1",
+            render: () => <p>Accordion 1 content</p>,
+        },
+        {
+            name: "acc2",
+            title: "Accordion 2",
+            render: () => <p>Accordion 2 content</p>,
+        }
+    ]
+
+    const accordion: any = useAccordion(steps, 'acc2');
+
+    return (
+        <div className="App">
+            <Accordion {...accordion}/>
+        </div>
+    )
 }
 
 export default App
